@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Annual Fest 2025</title>
+  <style>
+    :root {
+      --bg: #0f172a;          /* slate-900 */
+      --card: #111827;        /* gray-900 */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e5e7eb;        /* gray-200 */
+      --accent: #22d3ee;      /* cyan-400 */
+      --accent-2: #a78bfa;    /* violet-400 */
+      --ring: rgba(34, 211, 238, 0.25);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+        Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(167,139,250,0.15), transparent),
+                  radial-gradient(1000px 700px at 90% 10%, rgba(34,211,238,0.12), transparent),
+                  radial-gradient(1000px 700px at 50% 100%, rgba(34,197,94,0.10), transparent),
+                  var(--bg);
+      min-height: 100dvh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+      margin: 24px 0 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient( to bottom right, rgba(17,24,39,0.65), rgba(17,24,39,0.35) );
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.9rem;
+      letter-spacing: 0.2px;
+    }
+
+    header .badge {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #0b1020;
+      font-weight: 700;
+      box-shadow: 0 0 0 4px var(--ring);
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: 1.1fr 1fr; }
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(17,24,39,0.6);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.4rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* Schedule Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    thead th {
+      text-align: left;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, rgba(34,211,238,0.15), rgba(167,139,250,0.15));
+      color: var(--text);
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+
+    tbody tr:hover {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(34,211,238,0.18);
+      color: #cffafe;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 620px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 980px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    figure {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0b1020;
+    }
+
+    figure img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 260ms ease;
+    }
+
+    figure:hover img { transform: scale(1.04); }
+
+    figcaption {
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding: 10px 12px 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 10px 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Annual Fest 2025 — Event Schedule & Gallery</h1>
+      <span class="badge">Live • Main Stage & Labs</span>
+    </header>
+
+    <div class="grid">
+      <!-- SCHEDULE (feature/schedule) -->
+      <section class="card" id="schedule">
+        <h2>Schedule</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Venue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coding Contest</strong> <span class="tag">Tech</span></td>
+              <td>Sept 12, 2025 (Fri)</td>
+              <td>10:00 AM – 1:00 PM</td>
+              <td>CS Lab 1</td>
+            </tr>
+            <tr>
+              <td><strong>Robo Race</strong> <span class="tag">Tech</span></td>
+              <td>Sept 12, 2025 (Fri)</td>
+              <td>2:30 PM – 4:00 PM</td>
+              <td>Quadrangle</td>
+            </tr>
+            <tr>
+              <td><strong>Pitch Perfect</strong> <span class="tag">Biz</span></td>
+              <td>Sept 13, 2025 (Sat)</td>
+              <td>11:00 AM – 12:30 PM</td>
+              <td>Auditorium Hall B</td>
+            </tr>
+            <tr>
+              <td><strong>Cultural Night</strong> <span class="tag">Cultural</span></td>
+              <td>Sept 13, 2025 (Sat)</td>
+              <td>6:00 PM – 9:30 PM</td>
+              <td>Main Stage</td>
+            </tr>
+            <tr>
+              <td><strong>Esports Arena</strong> <span class="tag">Gaming</span></td>
+              <td>Sept 14, 2025 (Sun)</td>
+              <td>12:00 PM – 4:00 PM</td>
+              <td>Lab 3</td>
+            </tr>
+            <tr>
+              <td><strong>Closing Ceremony</strong> <span class="tag">Ceremony</span></td>
+              <td>Sept 14, 2025 (Sun)</td>
+              <td>5:30 PM – 7:00 PM</td>
+              <td>Main Stage</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- GALLERY (feature/gallery) -->
+      <section class="card" id="gallery">
+        <h2>Memories from Previous Fests</h2>
+        <div class="gallery">
+          <figure>
+            <img src="download.jpeg" alt="Students performing on stage with colorful lights" />
+            <figcaption>Cultural Night — dance crew lights up the stage.</figcaption>
+          </figure>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop" alt="Students coding in a lab during hackathon" />
+            <figcaption>Hackathon — all-nighter, coffee, and commits.</figcaption>
+          </figure>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop" alt="Crowd cheering under confetti at night" />
+            <figcaption>Finale — confetti rain and roaring cheers.</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      © 2025 Your College • Annual Fest Committee
+    </footer>
+  </div>
+</body>
+</html>
+
